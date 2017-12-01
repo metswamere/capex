@@ -17,7 +17,7 @@
       <property
          name="y">252.39648</property>
       <property
-         name="page">/Fragments/CIRView.jsff</property>
+         name="page">/CIRView.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>

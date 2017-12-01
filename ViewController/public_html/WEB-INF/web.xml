@@ -9,7 +9,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>HLLDServ</servlet-name>
-    <url-pattern>/HLLDServ</url-pattern>
+    <url-pattern>/hlldserv</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>

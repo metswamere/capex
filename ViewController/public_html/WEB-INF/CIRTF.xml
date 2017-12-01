@@ -6,7 +6,7 @@
       <shared/>
     </data-control-scope>
     <view id="CIRView">
-      <page>/Fragments/CIRView.jsff</page>
+      <page>/CIRView.jsff</page>
     </view>
     <use-page-fragments/>
   </task-flow-definition>

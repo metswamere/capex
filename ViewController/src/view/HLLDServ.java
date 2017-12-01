@@ -9,6 +9,8 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "HLLDServ", urlPatterns = { "/hlldserv" })
 public class HLLDServ extends HttpServlet {
+    @SuppressWarnings("compatibility:-1551566237928956775")
+    private static final long serialVersionUID = 7796530111211254065L;
     private static final String CONTENT_TYPE = "text/html; charset=UTF-8";
 
     public void init(ServletConfig config) throws ServletException {

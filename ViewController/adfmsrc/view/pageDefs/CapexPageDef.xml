@@ -10,6 +10,8 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <taskFlow id="CPBTF1" taskFlowId="/WEB-INF/CPBTF.xml#CPBTF" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="CIRTF" taskFlowId="/WEB-INF/CIRTF.xml#CIRTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>
