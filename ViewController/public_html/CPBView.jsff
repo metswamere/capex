@@ -1,0 +1,980 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1">
+        <!--HTML-->
+        <head>
+            <link href="../resources/css/Bootstrap.css" rel="stylesheet"/>
+            <link href="../resources/css/Style.css" rel="stylesheet"/>
+            <script src="../resources/js/AngularJS.js" type="text/javascript"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+            <script src="../resources/js/modal-JQuery.js"></script>
+            <script src="../resources/js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="../resources/js/jQuery.js" type="text/javascript"></script>
+        </head>
+        <body  ng-app="">
+         <form name="Capex_CPB" method="GET" action="http://127.0.0.1:7101/Capex_Portal-ViewController-context-root/HLLDServ">
+            <div class="container-fluid wrapper">
+            
+                <!--First Row-->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <h3>Capex Project Briefing</h3>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="input-group">
+                            <span class="input-group-addon red">CPB No.(For PAO use only)</span>
+                            
+                            <input type="text" id="CPBNo" class="form-control" placeholder="CPBNumber" name="CPBNo" ng-required="true" ng-model="CPBNo"/>
+                        </div>
+                         <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.CPBNo.$touched &amp;&amp; Capex_CPB.CPBNo.$invalid">
+                                 Capex Project Briefing (CPB) Number is required
+                         </div>
+                    </div>
+                </div>
+                <!--End First Row-->
+                <div class="progress" style="height: 30px; margin-top: 10px;">
+                    <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar"
+                         style="width: 32%; height: 30px;" aria-valuenow="32" aria-valuemax="0">
+                        <p class="font-weight-bold">92% completed</p>
+                    </div>
+                </div>
+                <!--Second Row-->
+                <div class="row PAO">
+                    <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">CIR No.(For PAO use only)</span>
+                            <input type="text" class="form-control" placeholder="CIR Number" name="CIRNo" ng-required="true"
+                            ng-model="CIRNo"/>
+                        </div>
+                         <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.CIRNo.$touched &amp;&amp; Capex_CPB.CIRNo.$invalid">
+                                 CIR Number is required
+                         </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="input-group">
+                            <span class="input-group-addon red">Date to be presented at Capex Committe.(For PAO use only)</span>
+                            <input type="date" class="form-control" placeholder="" name="PresentationDate" ng-model="PresentationDate" ng-required="true"/>
+                        </div>
+                         <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.PresentationDate.$touched &amp;&amp; Capex_CPB.PresentationDate.$invalid">
+                                 Capex Project Presentation Date is required
+                         </div>
+                    </div>
+                </div>
+                <!--End Second Row-->
+                <!--Third Row-->
+                <div class="row PAO">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon red">Project ToolKit No.(For PAO use only)</span>
+                            <input type="date" class="form-control" placeholder="Toolkit Number" name="ProjectToolKitNumberCPB" ng-model="ProjectToolKitNumberCPB" ng-required="true"/>
+                        </div>
+                         <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.ProjectToolKitNumberCPB.$touched &amp;&amp; Capex_CPB.ProjectToolKitNumberCPB.$invalid">
+                                 Project ToolKit No. is required
+                         </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Oracle Project No.(For PAO use only)</span>
+                            <input type="date" class="form-control" placeholder="Oracle Project Number"/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Third Row-->
+                <!--Fourth Row-->
+                <div class="row PAO pace-right pace-left">
+                    <div class="col-lg-2">
+                        <div class="row border">
+                            <div class="col-lg-12 orange">
+                                <span>Total Project Lifecycle Budget</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control border-radius" name="ProjectBudget" ng-model="ProjectBudget" ng-required="true"/>
+                            </div>
+                            <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.ProjectBudget.$touched &amp;&amp; Capex_CPB.ProjectBudget.$invalid">
+                                 Total Project Lifecycle Budget is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row border">
+                            <div class="col-lg-12 orange">
+                                <span>Project Budget Already Approved</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control border-radius" name="PBudgetApproved_CPB" 
+                                ng-model="PBudgetApproved_CPB" ng-required="true"/>
+                            </div>
+                            <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.PBudgetApproved_CPB.$touched &amp;&amp; Capex_CPB.PBudgetApproved_CPB.$invalid">
+                                 Project Budget Already Approved is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row border">
+                            <div class="col-lg-12 orange">
+                                <span>Available Project Budget Excluding This Request</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control border-radius" name="AvailableProjectBudgetCPB" 
+                                ng-model="AvailableProjectBudgetCPB" ng-requested="AvailableProjectBudgetCPB"/>
+                            </div>
+                            <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.AvailableProjectBudgetCPB.$touched &amp;&amp; Capex_CPB.AvailableProjectBudgetCPB.$invalid">
+                                 Available Project Budget Excluding This Request is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row border">
+                            <div class="col-lg-12 orange">
+                                <span>Project Budget Requested</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom">
+                            <div class="col-lg-12 ">
+                                <input type="text" class="form-control border-radius" name="ProjectBudgetReq_CPB" 
+                                ng-model="ProjectBudgetReq_CPB" ng-required="true"/>
+                            </div>
+                            <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.ProjectBudgetReq_CPB.$touched &amp;&amp; Capex_CPB.ProjectBudgetReq_CPB.$invalid">
+                                 Project Budget Requested is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row border border-right">
+                            <div class="col-lg-12 orange">
+                                <span>Project Budget Steercom Approved</span>
+                            </div>
+                        </div>
+                        <div class="row border border-right border-bottom">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control border-radius" name="ProjectBudgetSteercomCPB" 
+                                ng-model="ProjectBudgetSteercomCPB" ng-required="true"/>
+                            </div>
+                             <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.ProjectBudgetSteercomCPB.$touched &amp;&amp; Capex_CPB.ProjectBudgetSteercomCPB.$invalid">
+                                 Project Budget Steercom Approved is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Fourth Row-->
+                <!--Fifth Row-->
+                <div class="row PAO">
+                    <div class="col-lg"></div>
+                </div>
+                <!--End Fifth Row-->
+                <!--Sixth Row-->
+                <div class="row PAO">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Project Manager</span>
+                            <input type="text" class="form-control" placeholder="Project Manager" name="projectmanager" ng-model="projectmanager" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                                 ng-show="Capex_CPB.ProjectBudgetSteercomCPB.$touched &amp;&amp; Capex_CPB.ProjectBudgetSteercomCPB.$invalid">
+                                 Project Manager is required
+                            </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Program Manager</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Sixth Row-->
+                <!--Seventh Row-->
+                <div class="row PAO">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Project Owner</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Program Sponsor</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Seventh Row-->
+                <!--Eighth Row-->
+                <div class="row PAO">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Budget Owner</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Designation</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Eighth Row-->
+                <!--Ninth Row-->
+                <div class="row PAO">
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Project Business Case Document Number</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Rev</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Ninth Row-->
+                <!--Tenth Row-->
+                <div class="row PAO">
+                    <div class="col-lg-2">
+                        <div class="col-lg-12">
+                            <div class="row orange border border-right">
+                                <div class="col-lg-12">
+                                    <span>Legal Entity</span>
+                                </div>
+                            </div>
+                            <div class="row border border-bottom border-right">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="col-lg-12">
+                            <div class="row orange border border-right">
+                                <div class="col-lg-12">
+                                    <span>Functional Unit</span>
+                                </div>
+                            </div>
+                            <div class="row border border-bottom border-right">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="col-lg-12">
+                            <div class="row orange border border-right">
+                                <div class="col-lg-12">
+                                    <span>Asset Acquisition Outcome</span>
+                                </div>
+                            </div>
+                            <div class="row border border-bottom border-right">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="col-lg-12">
+                            <div class="row orange border border-right">
+                                <div class="col-lg-12">
+                                    <span>Estimated Project Duration (in months)</span>
+                                </div>
+                            </div>
+                            <div class="row border border-bottom border-right">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="col-lg-12">
+                            <div class="row orange border border-right">
+                                <div class="col-lg-12">
+                                    <span>Estimated Start Month</span>
+                                </div>
+                            </div>
+                            <div class="row border border-bottom border-right">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Tenth Row-->
+                <!--Row-->
+                <div class="row PAO pace-right pace-left">
+                    <div class="col-lg-12">
+                        <div class="row orange border border-right">
+                            <div class="col-lg-12">
+                                <span>Project Description</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom border-right">
+                            <textarea rows="7" class="textArea border-radius"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!--End Row-->
+                <!--Row-->
+                <div class="row PAO pace-right pace-left">
+                    <div class="col-lg-12">
+                        <div class="row orange border border-right">
+                            <div class="col-lg-12">
+                                <span>Project Deliverables</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom border-right">
+                            <textarea rows="7" class="textArea border-radius"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!--End Row-->
+                <!--Row-->
+                <div class="row PAO pace-right pace-left">
+                    <div class="col-lg-12">
+                        <div class="row orange border border-right">
+                            <div class="col-lg-12">
+                                <span>High-level Project Timelines</span>
+                            </div>
+                        </div>
+                        <div class="row border border-bottom border-right">
+                            <textarea rows="7" class="textArea border-radius"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!--End Row-->
+                <div class="row footer">
+                    <p class="text-center full-width font-weight-bold">How does this program support current business
+                                                                       strategy (VIVA) and why?</p>
+                </div>
+                <!--Eighth Row-->
+                <div class="row PAO">
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="form-control orange">Consumer</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="form-control orange">Prepaid</span>
+                                     
+                                    <input type="checkbox" class="form-control chckBoxes" id="t7t4" placeholder="-"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="form-control orange">Postpaid</span>
+                                     
+                                    <input type="checkbox" class="form-control chckBoxes" id="tt4" placeholder="-"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="PAO">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <span class="form-control orange">Business</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <span class="form-control orange">Mobile</span>
+                                         
+                                        <input type="checkbox" class="form-control chckBoxes" id="t0t4"
+                                               placeholder="-"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <span class="form-control orange">IS</span>
+                                         
+                                        <input type="checkbox" class="form-control chckBoxes" id="tet4"
+                                               placeholder="-"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <span class="form-control orange">People</span>
+                                     
+                                    <input type="checkbox" class="form-control chckBoxes" id="trt4" placeholder="-"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <span class="form-control orange">Leanership</span>
+                                     
+                                    <input type="checkbox" class="form-control chckBoxes" id="tpt4" placeholder="-"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <span class="form-control orange">Platform</span>
+                                     
+                                    <input type="checkbox" class="form-control chckBoxes" id="kt4" placeholder="-"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <span class="form-control orange WholeSale">
+                                    <label>Wholesale</label></span>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="input-group">
+                                            <span class="form-control orange">Carrier Services people</span>
+                                             
+                                            <input type="checkbox" class="form-control chckBoxes" id="ktt4"
+                                                   placeholder="-"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="input-group">
+                                            <span class="form-control orange">Business Leadership</span>
+                                             
+                                            <input type="checkbox" class="form-control chckBoxes" id="kukt4"
+                                                   placeholder="-"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="input-group">
+                                            <span class="form-control orange">ISP Platform</span>
+                                             
+                                            <input type="checkbox" class="form-control chckBoxes" id="ktl4"
+                                                   placeholder="-"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Eighth Row-->
+                <!--Ninth Row-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table id="tbl1" style="width: 100%;">
+                            <tr>
+                                <th class="orange footer" colspan="4">Financial Resources Required</th>
+                            </tr>
+                             
+                            <tr>
+                                <td class="orange">Estimated Project Budget</td>
+                                <td class="orange">Local Currency Time</td>
+                                <td class="orange">Quoted Currency Price (USD, Euro, etc)</td>
+                                <td class="orange">Exchange Rate</td>
+                            </tr>
+                             
+                            <tr>
+                                <td class="orange">CAPEX</td>
+                                <td></td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-lg-4 border-right">e.g. Euro</div>
+                                        <div class="col-lg-8">3333</div>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                             
+                            <tr>
+                                <td class="orange">OPEX</td>
+                                <td></td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-lg-4 border-right">e.g. Euro</div>
+                                        <div class="col-lg-8">3333</div>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--End Ninth Row-->
+                <!--Row-->
+                <div class="row PAO">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Asset Redudancy</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Redundancy Estimated Net Book Value</span>
+                             
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Row-->
+                <!--Eleventh Row-->
+                <div class="table-container">
+                    <div class="row">
+                        <div class="col-lg-12 orange border border-right">
+                            <span class="orange">High Level Financial Performance Indicators</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 orange border">
+                            <div class="row orange head">
+                                <span>WACC</span>
+                            </div>
+                            <div class="row orange head border-top">
+                                <span>Net Present Value</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border">
+                            <div class="row orange head">
+                                <span>Financial Approval Criterion</span>
+                            </div>
+                            <div class="row border-top">
+                                <span>Must be greater than 0</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border border-right">
+                            <div class="row orange head">
+                                <span>Program Result</span>
+                            </div>
+                            <div class="row border-top">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 orange border">
+                            <div class="row orange head">
+                                <span>WACC</span>
+                            </div>
+                            <div class="row orange head border-top">
+                                <span>Internal Rate of Return</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border">
+                            <div class="row orange head">
+                                <span>Financial Approval Criterion</span>
+                            </div>
+                            <div class="row border-top">
+                                <span>Must be greater at least 19%</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border border-right">
+                            <div class="row orange head">
+                                <span>Program Result</span>
+                            </div>
+                            <div class="row border-top">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 orange border border-bottom">
+                            <div class="row orange head">
+                                <span>WACC</span>
+                            </div>
+                            <div class="row orange head border-top">
+                                <span>Payback Period</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border border-bottom">
+                            <div class="row orange head">
+                                <span>Financial Approval Criterion</span>
+                            </div>
+                            <div class="row border-top">
+                                <span>Must be not longer than 3 years</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border border-bottom border-right">
+                            <div class="row orange head">
+                                <span>Program Result</span>
+                            </div>
+                            <div class="row border-top">
+                                <input type="text" class="form-control border-radius"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Eleventh Row-->
+                <!--Hello-->
+                <!--Twelth Row-->
+                <div class="row pace-right pace-left">
+                    <div class="col-lg-6 border border-bottom">
+                        <div class="row header ">
+                            <p class="text-center full-width font-weight-bold">Document Approval by BFA</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input id="jd" placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input id="Designation" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input id="Signature" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="date" type="date" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 border border-bottom border-right">
+                        <div class="row header">
+                            <p class="text-center full-width font-weight-bold">Document Reviewed by PAO Representative</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input id="CPMOAtxtName" placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input id="CPMOAtxtDesignation" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input id="CPMOAtxtSignature" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="CPMOAtxtDate" type="date" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Twelth Row-->
+                <!--End Hello-->
+                <!--Thirteenth Row-->
+                <div class="row header">
+                    <p class="text-center full-width font-weight-bold">Document Approved by CPG</p>
+                </div>
+                <div class="row pace-right pace-left">
+                    <div class="col-lg-6 border border-bottom">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control" value="Ryan Campbell" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="Project Accounting Office" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="" type="datetime-local" class="form-control" value="" placeholder="Date"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 border border-right border-bottom">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="General Manager : Capital Projects" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input type="date" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Thirt-->
+                <!--Thirteenth Row-->
+                <div class="row header">
+                    <p class="text-center full-width font-weight-bold">Document Approval by Capex Steering Committee
+                                                                       Members</p>
+                </div>
+                <div class="row footer">
+                    <div class="col-lg-12">
+                        <p class="text-center full-width font-weight-bold">
+                            The undersigned parties hereby confirm provisional approval of the project and to be
+                            included in the capital budget presentation for approval for the financial year 
+                            <span style="color:red; font-size:20px; font-weight:bold;">2017</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row pace-right pace-left">
+                    <div class="col-lg-6 border">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control" value="Ryan Campbell" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="Project Accounting Office" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="" type="datetime-local" class="form-control" value="" placeholder="Date"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 border border-right">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="General Manager : Capital Projects" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input type="date" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pace-right pace-left">
+                    <div class="col-lg-6 border">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control" value="Ryan Campbell" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="Project Accounting Office" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="" type="datetime-local" class="form-control" value="" placeholder="Date"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 border border-right">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="General Manager : Capital Projects" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input type="date" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pace-right pace-left">
+                    <div class="col-lg-6 border border-bottom">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control" value="Ryan Campbell" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="Project Accounting Office" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="" type="datetime-local" class="form-control" value="" placeholder="Date"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 border border-right border-bottom">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control" value="General Manager : Capital Projects" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input type="date" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Thirteenth Row-->
+                <!--Hello8-->
+                <div class="row PAO pace-right pace-left">
+                    <div class="col-lg-6 border border-bottom">
+                        <div class="row header ">
+                            <p class="text-center full-width font-weight-bold">Document Approval by BFA</p>
+                        </div>
+                        <div class="row footer">
+                            <div class="col-lg-12">
+                                <p class="text-center full-width font-weight-bold">
+                                    This CPB will be presented for financial year 
+                                    <span style="color:red; font-size:20px; font-weight:bold;">2017</span>
+                                     by:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input type="date" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 border border-bottom border-right">
+                        <div class="row header">
+                            <p class="text-center full-width font-weight-bold">Document Reviewed by PAO Representative</p>
+                        </div>
+                        <div class="row footer">
+                            <div class="col-lg-12">
+                                <p class="text-center full-width font-weight-bold">The PAO actions were completed by the
+                                                                                   following PAO representative:</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input placeholder="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input type="date" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <!--End Hello-->
+                <!--End Seventith Row-->
+                <div class="row footer">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-warning btn-settings">Save</button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-warning btn-settings">Clear</button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="submit" class="btn btn-warning btn-settings">Submit</button>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+                
+            </div>
+            </form>
+        </body>
+</jsp:root>

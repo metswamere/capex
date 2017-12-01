@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+.AFMasonryTileSize1x1{
+    width: 98%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.AFMasonryTileSize1x2{
+    width: 48.5%;
+}
+.AFMasonryTileSize1x3{
+    width: 25%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.AFMasonryTileSize2x1{
+    width: 12.5%;
+    margin-left: 15px;
+    margin-right: 15px;
+}

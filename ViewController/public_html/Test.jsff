@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1">
+    <?audit suppress oracle.ide.xml.validation-error?>
+    <!--HTML-->
+    <head>
+        <link href="../resources/css/Bootstrap.css" rel="stylesheet"/>
+        <link href="../resources/css/Style.css" rel="stylesheet"/>
+        <script src="../resources/js/AngularJS.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="../resources/js/modal-JQuery.js"></script>
+        <script src="../resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../resources/js/jQuery.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="">
+        <form name="Capex_Form" method="POST" action="/HLLDClass">
+            <div class="container-fluid wrapper">
+                <h3>Application Progress</h3>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar"
+                         style="width: 32%; height: 30px;" aria-valuenow="32" aria-valuemax="0">
+                        <p class="font-weight-bold">32% completed</p>
+                    </div>
+                </div>
+                <div class="row footer">
+                    <p class="text-center full-width font-weight-bold">For Project Accounting Office (PAO) Use Only</p>
+                </div>
+                <div class="row PAO">
+                    <div class="col-lg-10">
+                        <div class="input-group">
+                            <span class="input-group-addon red">HLLD Document No.(For PAO use only)</span>
+                             
+                            <input type="text" class="form-control" placeholder="HLLD Document Number"
+                                   value="${jjdk.ckk}" name="HLLDDocNumber"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                            <span class="input-group-addon red">Revision</span>
+                             
+                            <input type="text" class="form-control" placeholder="12" readonly="true"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row PAO">
+                    <div class="col-lg-8">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Project Name (For PAO use only)</span>
+                             
+                            <input class="form-control" name="project_name" ng-model="project_name" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.project_name.$touched &amp;&amp; Capex_Form.project_name.$invalid">The
+                                                                                                                    project
+                                                                                                                    name
+                                                                                                                    is
+                                                                                                                    required.</div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Oracle Project No.</span>
+                             
+                            <input type="text" class="form-control" placeholder="2887" readonly="true"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row PAO">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <span class="input-group-addon orange">Total Approved Project Budget Amount</span>
+                             
+                            <input type="text" class="form-control" placeholder="R200,887.00" readonly=""/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row header">
+                    <p class="text-center full-width font-weight-bold">HLDD Handover Acceptance From PAO to CPMO</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input id="jd" placeholder="Name" class="form-control" name="name_one" ng-model="name_one"
+                                   ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.name_one.$touched &amp;&amp; Capex_Form.name_one.$invalid">Name required</div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input id="Designation" class="form-control" name="designation_one"
+                                   ng-model="designation_one" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.designation_one.$touched &amp;&amp; Capex_Form.designation_one.$invalid">Designation
+                                                                                                                          required</div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input id="Signature" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="date" type="date" class="form-control" name="date_one" ng-model="date_one"
+                                   ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.date_one.$touched &amp;&amp; Capex_Form.date_one.$invalid">Date required</div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input id="CPMOAtxtName" placeholder="Name" class="form-control" ng-model="name_two"
+                                   name="name_two" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.name_two.$touched &amp;&amp; Capex_Form.name_two.$invalid">Name required</div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input id="CPMOAtxtDesignation" class="form-control" name="designation_two"
+                                   ng-model="designation_two" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.designation_two.$touched &amp;&amp; Capex_Form.designation_two.$invalid">Designation
+                                                                                                                          required</div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input id="CPMOAtxtSignature" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="CPMOAtxtDate" type="date" class="form-control" name="date_two"
+                                   ng-model="date_two" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.date_two.$touched &amp;&amp; Capex_Form.date_two.$invalid">Date required</div>
+                    </div>
+                </div>
+                <div class="row footer">
+                    <p class="text-center full-width font-weight-bold">For Capital Project Management Office (CPMO) Use
+                                                                       Only</p>
+                </div>
+                <div class="row">
+                    <label class="labels unq">Expected Project Delivery Timeline</label>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label class="labels">Start Date</label>
+                         
+                        <input id="txtStartDate" class="form-control" type="date"/>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="labels">End Date</label>
+                         
+                        <input id="txtEndDate" class="form-control" type="date"/>
+                    </div>
+                </div>
+                <div class="row header">
+                    <p class="text-center full-width font-weight-bold">CPMO Project Execution and Project Manager
+                                                                       Allocation Approval</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="labels">CPMO Program Stream:</label>
+                             
+                            <input id="txtCPMOStream" class="form-control" type="text" name="Program_Stream"
+                                   ng-model="Program_Stream" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.Program_Stream.$touched &amp;&amp; Capex_Form.Program_Stream.$invalid">CPMO
+                                                                                                                        Program
+                                                                                                                        Stream
+                                                                                                                        required</div>
+                        <div class="form-group">
+                            <label class="labels">CPMO Stream/Program Manager:</label>
+                             
+                            <input id="txtCPMOStreamManager" class="form-control" type="text" value=""
+                                   name="Program_Manager" ng-model="Program_Manager" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.Program_Manager.$touched &amp;&amp; Capex_Form.Program_Manager.$invalid">Program
+                                                                                                                          Manager
+                                                                                                                          required</div>
+                        <div class="form-group">
+                            <label class="labels">CPMO Project No.:</label>
+                             
+                            <input id="txtCPMOProjectNo" class="form-control" type="text" value="" name="Project_Number"
+                                   ng-model="Project_Number" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.Project_Number.$touched &amp;&amp; Capex_Form.Project_Number.$invalid">Project
+                                                                                                                        Number
+                                                                                                                        required</div>
+                        <div class="form-group">
+                            <label class="labels">Allocated Project Manager:</label>
+                             
+                            <input id="txtCPMOAPM" class="form-control" type="text" value=""
+                                   name="Allocated_Project_Manager" ng-model="Allocated_Project_Manager"
+                                   ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.Allocated_Project_Manager.$touched &amp;&amp; Capex_Form.Allocated_Project_Manager.$invalid">Project
+                                                                                                                                              Number
+                                                                                                                                              required</div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="labels">Name:</label>
+                             
+                            <input id="txtApprovalName" class="form-control" type="text" name="name_three"
+                                   ng-model="name_three" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.name_three.$touched &amp;&amp; Capex_Form.name_three.$invalid">Name
+                                                                                                                required</div>
+                        <div class="form-group">
+                            <label class="labels">Designation:</label>
+                             
+                            <input id="txtApprovalDesignation" class="form-control" type="text" name="designation_three"
+                                   ng-model="designation_three" ng-required="true"/>
+                        </div>
+                        <div class="alert alert-warning" role="alert"
+                             ng-show="Capex_Form.designation_three.$touched &amp;&amp; Capex_Form.designation_three.$invalid">Name
+                                                                                                                              required</div>
+                        <div class="form-group">
+                            <label class="labels">Signature:</label>
+                             
+                            <input id="txtApprovalSignature" name="txtApprovalSignature" class="form-control"
+                                   type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Date:</label>
+                             
+                            <input id="txtApprovalDate" class="form-control" type="date"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row footer">
+                    <p>* This document serves as the integration document between the project accounting office (PAO)
+                       and the Capital Project Management Office (CPMO). On receiving the document, execution
+                       responsibility transfers to the (CPMO) and allocated Project Manager. Adherence to project
+                       timelines and submission dates to the CPMO and Capex Steercom is mandatory.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                         
+                    </div>
+                    <div class="col-lg-1">
+                         
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-warning btn-settings" name="btnSaveHLLD">Save</button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="submit" class="btn btn-warning btn-settings">Clear</button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-warning btn-settings"
+                                onclick="window.location.assign('CIRView.jsff')">Continue</button>
+                    </div>
+                    <div class="col-lg-2">
+                         
+                    </div>
+                </div>
+            </div>
+        </form><!--Script--><!--End Script-->
+    </body>
+    <!--End HTML-->
+</jsp:root>

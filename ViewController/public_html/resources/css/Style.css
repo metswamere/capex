@@ -1,0 +1,198 @@
+@charset "UTF-8";
+.header{
+    background: #ffc510;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.btn-settings{
+    width: 100% !important;
+    border-radius: 0;
+    margin-bottom: 10px !important;
+}
+.footer{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+}
+.bg-warning {
+    background-color: #ffc510!important;
+}
+.btn-warning {
+    color: #fff;
+    background-color: #ffc510;
+    border-color: #f0ad4e;
+}
+.full-width{
+    width: 100%;
+}
+.header p{
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.footer p{
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.wrapper{
+    background: White;
+    box-shadow: 1px 1px 1px 2px silver;
+}
+.red{
+    background: red;
+    color: White;
+}
+.orange{
+    background: #ffc510;
+}
+.PAO{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.labels{
+    font-weight: bold;
+    font-size: 15px;
+}
+.unq{
+    margin-left: 16px;
+}
+.progress-bar p{
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px
+}
+.space{
+    margin-left:20px;
+    margin-right:20px;
+    width: 100%;
+}
+.pad-lft-one{
+    margin-left: -32px;
+    border-radius: 0px;
+}
+.pad-lft-two{
+    margin-left: -64px;
+    border-radius: 0px;
+}
+.pad-lft-three{
+    margin-left: -96px;
+    border-radius: 0px;
+}
+.pad-lft-four{
+    margin-left: -128px;
+    border-radius: 0px 5px 5px 0px;
+
+}
+.pad-lft-zero{
+    border-radius: 5px 0px 0px 5px;
+}
+.pad-left{
+    padding-right: 0px;
+}
+.pad-right{
+    padding-left: 0px;
+}
+.pad-input-left{
+    border-radius: 5px 0px 0px 5px;
+}
+.pad-input-right{
+    
+    border-radius: 0px 5px 5px 0px;
+}
+.WholeSale{
+    height: 100%;
+    text-align: center;
+}
+.WholeSale label{
+    padding-top: 70%;
+    margin-left: -5px;
+}
+.chckBoxes{
+    margin-top: 15px;
+}
+.textArea{
+    width: 100%;
+}
+table{
+    border: 1px solid black;
+    font-size: 18px;
+}
+table tr{
+    border: 1px solid black;
+}
+table td{
+    border: 1px solid black;
+}
+.border-right{
+    border-right: 1px solid black;
+}
+.border{
+    border-top: 1px solid;
+    border-left: 1px solid;
+    font-size: 18px;
+}
+.orange .head div {
+    border-bottom: 1px solid;
+}
+.border-radius{
+    border-radius: 0px;
+    border: 0px;
+}
+.table-container{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.border-right{
+    border-right: 1px solid;
+}
+.border-bottom{
+    border-bottom: 1px solid;
+}
+.border-top{
+    border-top: 1px solid;
+}
+.pace-right{
+    padding-right: 15px;
+}
+.pace-left{
+    padding-left: 15px;
+}
+@media only screen and (max-device-width: 991px){
+    .pad-lft-one{
+        margin-left:0px;
+    }
+    .pad-lft-two{
+        margin-left:0px;
+    }
+    .pad-lft-three{
+        margin-left:0px;
+    }
+    .pad-lft-zero{
+        margin-left:0px;
+    }
+    .pad-lft-four{
+        margin-left:0px;
+    }
+    .pad-right{
+        padding-left: 15px;
+    }
+    .pad-input-right {
+    border-radius: 5px;
+}
+    .pad-left {
+    padding-right: 15px;
+}
+.pad-input-left {
+    border-radius: 5px;
+}
+    .WholeSale label{
+        padding-top: 0px;
+    }
+}
